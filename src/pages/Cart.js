@@ -6,7 +6,7 @@ const Cart = () => {
   const {
     cartQuantity,
     cartItems,
-    getCartPrice,
+    // getCartPrice,
     // getItemQuantity,
     // increaseCartItem,
     // decreaseCartItem,
@@ -23,10 +23,10 @@ const Cart = () => {
       <p>Quantity: {cartQuantity}</p>
       <ul>
         {cartItems.map((item) => {
-          return <CartItem data={item} />;
+          return <CartItem key={item.id} data={item} />;
         })}
       </ul>
-      <h2>Sub Total : {getCartPrice()}</h2>
+      <h2>Sub Total :</h2>
     </div>
   );
 };

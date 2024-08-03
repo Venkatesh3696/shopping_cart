@@ -11,11 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      {/* <ProductsContextProvider> */}
       <ShoppingCartProvider>
         <App />
       </ShoppingCartProvider>
-      {/* </ProductsContextProvider> */}
     </Router>
   </React.StrictMode>
 );

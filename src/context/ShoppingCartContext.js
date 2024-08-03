@@ -6,7 +6,6 @@ export const useShoppingCart = () => useContext(shoppingCartContext);
 
 export const ShoppingCartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  console.log("at context leevl state", cartItems);
 
   const cartQuantity = () => {
     cartItems.reduce((quantity, item) => quantity + item.quantity, 0);
@@ -17,6 +16,7 @@ export const ShoppingCartProvider = ({ children }) => {
   };
 
   const increaseCartItem = (id) => {
+    console.log("at context leevl state", id, cartItems);
     setCartItems((currentItems) => {
       if (currentItems.find((item) => item.id === id) === null) {
         return [...currentItems, { id, quantity: 1 }];
@@ -52,12 +52,13 @@ export const ShoppingCartProvider = ({ children }) => {
       currentItems.filter((item) => item.id !== id)
     );
   };
+
   //   const clearCart = () => {
   //     setCartItems([]);
   //   };
 
   return (
-    <ShoppingCartProvider
+    <shoppingCartContext.Provider
       value={{
         cartQuantity,
         cartItems,
@@ -69,6 +70,6 @@ export const ShoppingCartProvider = ({ children }) => {
       }}
     >
       {children}
-    </ShoppingCartProvider>
+    </shoppingCartContext.Provider>
   );
 };

@@ -1,20 +1,20 @@
-import { useShoppingCart } from "../context/ShoppingCartContext";
+// import { useShoppingCart } from "../context/ShoppingCartContext";
 
 const CartItem = ({ data }) => {
-  const { increaseCartItem, decreaseCartItem, deleteCartItem } =
-    useShoppingCart();
+  // const { increaseCartItem, decreaseCartItem, deleteCartItem } =
+  //   useShoppingCart();
 
-  const [id, quantity] = data;
+  const [quantity] = data;
   return (
-    <li key={id}>
+    <li>
       <p>{quantity}</p>
       <div>
         <div className="flex flex-row ">
-          <button onClick={() => decreaseCartItem(id)}>-</button>
+          <button>-</button>
           <p>{quantity}</p>
-          <button onClick={() => increaseCartItem(id)}>+</button>
+          <button>+</button>
         </div>
-        <button onClick={() => deleteCartItem(id)}>Remove</button>
+        <button>Remove</button>
       </div>
     </li>
   );
